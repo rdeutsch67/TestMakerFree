@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace TestMakerFreeWebApp.Data
+namespace TestMakerFreeApp.Data
 {
     public class Answer
     {

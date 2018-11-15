@@ -4,12 +4,24 @@ using Newtonsoft.Json;
 using TestMakerFreeWebApp.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using TestMakerFreeApp.Data;
 
 namespace TestMakerFreeWebApp.Controllers
 {
     [Route("api/[controller]")]
     public class QuizController : Controller
     {
+        #region Private Fields
+        private ApplicationDbContext DbContext;
+        #endregion
+        #region Constructor
+        public QuizController(ApplicationDbContext context)
+        {
+            // Instantiate the ApplicationDbContext through DI
+            DbContext = context;
+        }
+        #endregion Constructor
+        
         #region RESTful conventions methods
         /// <summary>
         /// GET: api/quiz/{}id
@@ -31,6 +43,9 @@ namespace TestMakerFreeWebApp.Controllers
             };
             
             // output the result in JSON format
+            var quiz = DbContext.Quizzes.Where(i => i.Id == id).FirstOrDefault();
+            return new JsonResult(
+                quiz.Adapt<QuizViewModel>(),
             return new JsonResult(
                 v,
                 new JsonSerializerSettings()

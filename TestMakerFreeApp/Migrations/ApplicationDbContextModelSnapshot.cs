@@ -19,7 +19,7 @@ namespace TestMakerFreeApp.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Answer", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Answer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -48,7 +48,7 @@ namespace TestMakerFreeApp.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.ApplicationUser", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -77,7 +77,7 @@ namespace TestMakerFreeApp.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Question", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Question", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -104,7 +104,7 @@ namespace TestMakerFreeApp.Migrations
                     b.ToTable("Questions");
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Quiz", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Quiz", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -138,7 +138,7 @@ namespace TestMakerFreeApp.Migrations
                     b.ToTable("Quizzes");
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Result", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Result", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -169,33 +169,33 @@ namespace TestMakerFreeApp.Migrations
                     b.ToTable("Results");
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Answer", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Answer", b =>
                 {
-                    b.HasOne("TestMakerFreeWebApp.Data.Question", "Question")
+                    b.HasOne("TestMakerFreeApp.Data.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Question", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Question", b =>
                 {
-                    b.HasOne("TestMakerFreeWebApp.Data.Quiz", "Quiz")
+                    b.HasOne("TestMakerFreeApp.Data.Quiz", "Quiz")
                         .WithMany("Questions")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Quiz", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Quiz", b =>
                 {
-                    b.HasOne("TestMakerFreeWebApp.Data.ApplicationUser", "User")
+                    b.HasOne("TestMakerFreeApp.Data.ApplicationUser", "User")
                         .WithMany("Quizzes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TestMakerFreeWebApp.Data.Result", b =>
+            modelBuilder.Entity("TestMakerFreeApp.Data.Result", b =>
                 {
-                    b.HasOne("TestMakerFreeWebApp.Data.Quiz", "Quiz")
+                    b.HasOne("TestMakerFreeApp.Data.Quiz", "Quiz")
                         .WithMany("Results")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade);

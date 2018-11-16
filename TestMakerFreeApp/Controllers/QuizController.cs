@@ -87,7 +87,7 @@ namespace TestMakerFreeWebApp.Controllers
         public IActionResult Latest(int num = 10)
         {
             var latest = DbContext.Quizzes
-                .OrderByDescending(q => q.CreatedDate)
+                .OrderByDescending(q => q.LastModifiedDate)
                 .Take(num)
                 .ToArray();
             return new JsonResult(

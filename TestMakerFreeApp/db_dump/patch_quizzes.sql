@@ -11,7 +11,7 @@ BEGIN
     new."LastModifiedDate" := current_timestamp at time zone 'cet';
   end if;
 
-  if (TG_OP = 'UPDATE') then
+  if (TG_OP = 'UPDATE')  then
     if (new."LastModifiedDate" = old."LastModifiedDate") then
       new."LastModifiedDate" := current_timestamp at time zone 'cet';
     end if;

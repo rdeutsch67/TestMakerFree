@@ -2,11 +2,11 @@ quiz-list {
   width: 400px;
   display: block;
   padding: 2px 20px;
-  margin: 0px 5px;
+  margin: 2px 5px;
   float: left;
 }
 quiz-list.latest {
-  background-color: #f0f0f0;
+  background-color: rgba(54, 203, 240, 0.55);
 }
 quiz-list.byTitle {
   background-color: #e0e0e0;
